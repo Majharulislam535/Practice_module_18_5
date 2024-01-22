@@ -1,0 +1,33 @@
+{% extends 'base.html'  %}
+{% load crispy_forms_tags %}
+{% block content %}
+ 
+{% if messages %}
+{% for ms in messages %}
+    <h5 class="text-white bg-danger p-3">{{ms}}</h5>
+{% endfor %}
+{% endif %}
+
+<h1 class="text-center text-primary p-4">Profile page</h1>
+
+ 
+
+   <form method="post" style="width: 50%; margin: auto;">
+    {% csrf_token %}
+    <h1 class="text-center text-primary"> Change Your Information</h1>
+    {{form | crispy}}
+
+    <div>
+        <a href="{% url 'pass_Change' %}" class="btn btn-primary">Change Your Password</a>
+     </div>
+     <br>
+
+     <button class="btn btn-primary">Submit</button>
+
+     
+
+   </form>
+
+ 
+
+{% endblock %}
